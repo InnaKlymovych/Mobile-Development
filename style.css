@@ -50,3 +50,14 @@ height: var(--button-height);
    display: flex;
    height: var(--button-height);
 }
+
+.controller{
+   display: flex;
+   justify-content: space-between;
+   gap: 10px;
+}
+
+.controller > button{
+   width: 30px;
+   height: 40px;
+}
