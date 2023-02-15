@@ -1,0 +1,52 @@
+:root{
+   --color-blue-soft: #053160;
+   --color-blue-dark: #031e3c;
+   --color-yellow: #FFC800;
+   --button-height: 92px;
+}
+
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+html,body{
+   max-width: 100%;
+   min-height: 100vh;
+}
+
+html{
+   background-color: var(--color-blue-dark);
+}
+
+body{
+   background-color: var(--color-blue-soft);
+   max-width: 800px;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+button{
+   border: none;
+   background-color: transparent;
+   color: var(--color-yellow);
+   cursor: pointer;
+   font-size: 2.5rem;
+   font-weight: bold;
+   flex: 1;
+
+}
+
+.info{
+display: flex;
+height: var(--button-height);
+
+}
+
+.menu{
+   display: flex;
+   height: var(--button-height);
+}
