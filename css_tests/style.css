@@ -59,9 +59,10 @@ margin-bottom: 100px;
 }
 
 .volume {
+   display: flex;
+   justify-content: space-between;
+   gap: 10px;
    margin: auto;
-   left: 50%;
-   width: 500px;
    height: 60px;
    padding: 30px;
    background: var(--color-yellow);
@@ -79,8 +80,7 @@ margin-bottom: 100px;
    color: var(--color-blue-soft);
    }
    .volume input[type="range"] {
-   -webkit-appearance:none !important;
-   width: 420px;
+   max-width: 420px;
    height: 2px;
    background: var(--color-blue-dark);
    border: none;
