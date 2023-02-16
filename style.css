@@ -57,7 +57,3 @@ height: var(--button-height);
    gap: 10px;
 }
 
-.controller > button{
-   width: 30px;
-   height: 40px;
-}
