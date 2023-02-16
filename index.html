@@ -6,35 +6,92 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Player</title>
    <link rel="stylesheet" href="style.css">
+   <script src="script.js"></script>
 </head>
 <body>
-   <div class="info">
-      <button>INFO</button>
-   </div>
-   <div class="controller">
-      <button>
-         <svg width="30%" height="30%" viewBox="0 0 9 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-            <rect id="icons" x="-33.492" y="-37.964" width="116.242" height="131.442" style="fill:none;"/>
-            <path d="M1.899,6.024l0,4.961l-1.899,-0l0,-10.985l1.899,0l0,4.996l7,-4.978l-0,10.984l-7,-4.978Z" style="fill:#ffc80b;"/></svg>
-      </button>
-      <button>
-         <svg width="40%" height="40%" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><rect id="icons" x="-73.806" y="-32.397" width="116.242" height="131.442" style="fill:none;"/><g><rect x="-0" y="0" width="9.339" height="22.166" style="fill:#ffc80b;"/>
-            <rect x="12.825" y="0" width="9.339" height="22.166" style="fill:#ffc80b;"/>
-         </g>
-      </svg>
-      </button>
-      <button>
-         <svg width="30%" height="30%" viewBox="0 0 9 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-            <rect id="icons" x="-101.722" y="-37.993" width="116.242" height="131.442" style="fill:none;"/>
-            <path d="M7,4.978l-0,-4.96l1.899,-0l-0,10.984l-1.899,0l-0,-4.995l-7,4.978l-0,-10.985l7,4.978Z" style="fill:#ffc80b;"/>
+   <main>
+      <div id="info">
+         <button type="button" aria-label="info-button">INFO</button>
+      </div>
+
+      <div id="controller">
+         <button type="button" aria-label="previous">
+         <svg
+            width="40%"
+            height="100%"
+            viewBox="0 0 9 12"
+            fill="var(--primary-color)"
+            
+         >
+            <path
+               d="M1.899,6.024l0,4.961l-1.899,-0l0,-10.985l1.899,0l0,4.996l7,-4.978l-0,10.984l-7,-4.978Z"
+            />
          </svg>
-      </button>
-   </div>
-   <div class="volume">
-      <input type="range">
-   </div>
-   <div class="menu">
-      <button>MENU</button>
-   </div>
+         </button>
+         <button type="button" aria-label="play">
+         <svg
+            width="80%"
+            height="100%"
+            viewBox="0 0 23 23"
+            fill="var(--primary-color)"
+         >
+            <path d="M22.164,11.082l-22.164,11.082l0,-22.164l22.164,11.082Z" 
+            />
+         </svg>
+         </button>
+         <button type="button" aria-label="next">
+         <svg
+            width="40%"
+            height="100%"
+            viewBox="0 0 9 12"
+            fill="var(--primary-color)"
+         >
+            <path d="M7,4.978l-0,-4.96l1.899,-0l-0,10.984l-1.899,0l-0,-4.995l-7,4.978l-0,-10.985l7,4.978Z"
+            />
+         </svg>
+         </button>
+      </div>
+
+      <div id="volume">
+         <input
+         type="range"
+         min="0"
+         max="100"
+         value="10"
+         aria-label="volume-slider"
+         />
+      </div>
+
+      <nav>
+         <button type="button" aria-label="menu-open">
+         <svg 
+         width="100%" 
+         height="80%" 
+         viewBox="0 0 11 11">
+            <rect
+               x="0"
+               y="0"
+               width="10.355"
+               height="2.609"
+               style="fill: var(--primary-color)"
+            />
+            <rect
+               x="0"
+               y="3.876"
+               width="10.355"
+               height="2.609"
+               style="fill: var(--primary-color)"
+            />
+            <rect
+               x="0"
+               y="7.746"
+               width="10.355"
+               height="2.609"
+               style="fill: var(--primary-color)"
+            />
+            </svg>
+         </button>
+      </nav>
+   </main>
 </body>
 </html>

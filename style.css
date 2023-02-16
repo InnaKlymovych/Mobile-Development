@@ -1,8 +1,11 @@
 :root{
-   --color-blue-soft: #053160;
-   --color-blue-dark: #031e3c;
-   --color-yellow: #FFC800;
+   --primary-color: #bfd11f;
+   --secondary-color: #121213;
+   --terciary-color: #2c2b27;
+
    --button-height: 92px;
+
+   --slider-position: 10%;
 }
 
 *{
@@ -17,11 +20,11 @@ html,body{
 }
 
 html{
-   background-color: var(--color-blue-dark);
+   background-color: var(--primary-color);
 }
 
 body{
-   background-color: var(--color-blue-soft);
+   background-color: #000;
    max-width: 800px;
    margin: 0 auto;
    display: flex;
@@ -29,31 +32,61 @@ body{
    justify-content: space-between;
 }
 
-button{
-   border: none;
-   background-color: transparent;
-   color: var(--color-yellow);
-   cursor: pointer;
-   font-size: 2.5rem;
-   font-weight: bold;
-   flex: 1;
+main {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   background-color: var(--secondary-color);
 
+   max-width: 800px;
+   height: 100vh;
+   margin: 0 auto;
+   overflow: hidden;
 }
 
-.info{
-display: flex;
-height: var(--button-height);
-
-}
-
-.menu{
+#info,
+nav {
    display: flex;
    height: var(--button-height);
 }
 
-.controller{
+button {
+   border: none;
+   background-color: transparent;
+
+   color: var(--primary-color);
+   font-size: clamp(2.5rem, 3vw, 3.5rem);
+   font-weight: 600;
+   text-transform: uppercase;
+
+   cursor: pointer;
+
+   flex: 1;
+}
+
+#controller {
    display: flex;
    justify-content: space-between;
+   align-items: center;
    gap: 10px;
 }
 
+input {
+   position: relative;
+   appearance: none;
+   background-color: var(--primary-color);
+   height: var(--button-height);
+   width: 100%;
+}
+
+input:before {
+   content: "";
+   position: absolute;
+   width: var(--slider-position);
+   height: 100%;
+   background-color: var(--terciary-color);
+}
+
+input::-webkit-slider-thumb {
+   opacity: 0;
+}
