@@ -1,12 +1,13 @@
-window.onload = ()=> {
-   const volumeSlider = document.querySelector("input");
+import SliderBar from "./components/SlideBar.js";
+import Scrub from "./components/Scrub.js";
 
-   const changeSliderValue = () => {
-      document.documentElement.style.setProperty(
-         "--slider-position",
-         `${volumeSlider.value}%`
-      );
-   };
-   volumeSlider.addEventListener("input", changeSliderValue);
+
+window.onload = () => {
+   
+   const volumeBar = new SliderBar("#volume");
+
+   const scrub = new Scrub("#scrub");
+
 
 };
+

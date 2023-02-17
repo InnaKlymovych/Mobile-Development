@@ -37,7 +37,6 @@ main {
    flex-direction: column;
    justify-content: space-between;
    background-color: var(--secondary-color);
-
    max-width: 800px;
    height: 100vh;
    margin: 0 auto;
@@ -53,14 +52,11 @@ nav {
 button {
    border: none;
    background-color: transparent;
-
    color: var(--primary-color);
    font-size: clamp(2.5rem, 3vw, 3.5rem);
    font-weight: 600;
    text-transform: uppercase;
-
    cursor: pointer;
-
    flex: 1;
 }
 
@@ -71,15 +67,31 @@ button {
    gap: 10px;
 }
 
-input {
-   position: relative;
-   appearance: none;
-   background-color: var(--primary-color);
-   height: var(--button-height);
-   width: 100%;
+input[type="range"] {
+   background-color: var(--secondary-color);
+   position: absolute;
+   inset: 0;
+   opacity: 0;
+   
 }
 
-input:before {
+.range {
+   position: relative;
+   display: flex;
+   flex: 1;
+   background-color: var(--primary-color);
+   
+}
+
+.range-bar{
+   
+   flex: 1;
+   transform-origin: left;
+   transform: scalex(0.5);
+   background-color: var(--terciary-color);
+   pointer-events: none;
+}
+/*input:before {
    content: "";
    position: absolute;
    width: var(--slider-position);
@@ -89,4 +101,5 @@ input:before {
 
 input::-webkit-slider-thumb {
    opacity: 0;
-}
+}*/
+
