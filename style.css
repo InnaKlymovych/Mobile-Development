@@ -1,7 +1,10 @@
 :root{
-   --primary-color: #bfd11f;
-   --secondary-color: #121213;
-   --terciary-color: #2c2b27;
+   /*BLUES*/
+   --color-blue-light: #053160;
+   --color-blue-dark: #031E3C;
+   
+   /*YELLOWS*/
+   --color-yellow: #FFC80B;    
 
    --button-height: 92px;
 
@@ -9,97 +12,100 @@
 }
 
 *{
-padding: 0;
-margin: 0;
-box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   box-sizing:border-box;
 }
 
-html,body{
-   max-width: 100%;
+html, body{
+   max-width:100%;
    min-height: 100vh;
 }
 
 html{
-   background-color: var(--primary-color);
+   background-color: var(--color-blue-dark);
+
 }
 
 body{
-   background-color: #000;
-   max-width: 800px;
-   margin: 0 auto;
    display: flex;
    flex-direction: column;
+   background-color: var(--color-blue-light);
+   max-width: 800px;
+   margin: 0 auto;
    justify-content: space-between;
 }
 
-main {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   background-color: var(--secondary-color);
-   max-width: 800px;
-   height: 100vh;
-   margin: 0 auto;
-   overflow: hidden;
+button{
+   border: none;
+   background-color: transparent;
+   color: var(--color-yellow);
+   cursor: pointer;
+   font-size: clamp(2.5rem, 3vw, 3.5rem);
+   font-weight: bold;
+   flex: 1;
 }
 
-#info,
-nav {
+button:active{
+   transform: scale(0.9);
+}
+
+#info{
    display: flex;
    height: var(--button-height);
 }
 
-button {
-   border: none;
-   background-color: transparent;
-   color: var(--primary-color);
-   font-size: clamp(2.5rem, 3vw, 3.5rem);
-   font-weight: 600;
-   text-transform: uppercase;
-   cursor: pointer;
+
+#menu{
+   display: flex;
+   height: var(--button-height);
+   justify-self: end;  
+}
+
+#controller{
+   display: flex;
+   justify-content: space-between;
+   gap: 10px;
    flex: 1;
 }
 
-#controller {
+#volume{
    display: flex;
-   justify-content: space-between;
-   align-items: center;
-   gap: 10px;
+   flex: 1;
 }
 
-input[type="range"] {
-   background-color: var(--secondary-color);
+input[type="range"]{
    position: absolute;
    inset: 0;
    opacity: 0;
-   
 }
 
-.range {
+.range{
+   flex: 1;
    position: relative;
    display: flex;
-   flex: 1;
-   background-color: var(--primary-color);
-   
 }
 
 .range-bar{
-   
-   flex: 1;
+   flex : 1;
+   width: 100%;
    transform-origin: left;
-   transform: scalex(0.5);
-   background-color: var(--terciary-color);
+   transform: scaleX(0.5);
+   background-color: var(--color-yellow);
    pointer-events: none;
 }
-/*input:before {
-   content: "";
-   position: absolute;
-   width: var(--slider-position);
-   height: 100%;
-   background-color: var(--terciary-color);
+
+.toggle{
+
 }
 
-input::-webkit-slider-thumb {
-   opacity: 0;
-}*/
-
+.toggle>*{
+   display: none;
+}
+/* #controller > button{
+   width: 30px;
+   height: 60px;
+}
+#controller > button:nth-child(2){
+   width: 50px;
+} */
