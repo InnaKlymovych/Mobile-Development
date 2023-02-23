@@ -6,9 +6,14 @@ window.onload=() => {
 
 const previousButton = new Button("#previous-button");
 previousButton.onClick = (value) => {
-
    console.log('previous button', value)
 }
+
+const volumeBar = new RangeBar("#volume");
+volumeBar.onChange((value) => {
+   console.log("volume changed, value")
+})
+
 
 const button = new ToggleButton("#action-button");
 button.onClick = (value) => {
@@ -17,11 +22,7 @@ button.onClick = (value) => {
 }
 const slideBar = new RangeBar("#volume");
 
-const menuButton = new ToggleButton("#menu-button");
-menuButton.onClick = (value) => {
-   console.log("menu button", value)
-   menuButton.toggle();
-}
+
 
 const infoButton = new ToggleButton("#info-button");
 infoButton.onClick = (value) => {
@@ -29,8 +30,6 @@ infoButton.onClick = (value) => {
    infoButton.toggle();
 }
 
-infoButton.toggle(0);
-menuButton.toggle(0);
-button.toggle(0);
+const menu = new Menu("#menu");
 };
 

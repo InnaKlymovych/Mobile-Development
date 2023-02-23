@@ -9,6 +9,8 @@
    --button-height: 92px;
 
    --slider-position: 10%;
+
+   --speed: 1s;
 }
 
 *{
@@ -28,6 +30,7 @@ html{
 }
 
 body{
+   position: relative;
    display: flex;
    flex-direction: column;
    background-color: var(--color-blue-light);
@@ -72,19 +75,25 @@ button:active{
 #volume{
    display: flex;
    flex: 1;
+   
 }
 
 input[type="range"]{
    position: absolute;
    inset: 0;
    opacity: 0;
+   cursor: pointer;
+   
 }
+
+
 
 .range{
    flex: 1;
    position: relative;
    display: flex;
 }
+
 
 .range-bar{
    flex : 1;
@@ -95,17 +104,25 @@ input[type="range"]{
    pointer-events: none;
 }
 
-.toggle{
 
-}
+
+/*.toggle{
+
+}*/
 
 .toggle>*{
    display: none;
 }
-/* #controller > button{
-   width: 30px;
-   height: 60px;
+
+#menu-container{
+   position: absolute;
+   inset: 0;
+   bottom: var(--color-yellow);
+   transform: scaleY(0);
+   background-color: bisque; 
+   transform: scaleY(0);
+   transition: transform var(--speed);
+   transform-origin: bottom;
 }
-#controller > button:nth-child(2){
-   width: 50px;
-} */
+
+
