@@ -1,25 +1,54 @@
-import Component from "./component.js";
+import Component from "./Component.js";
+import ToggleButton from "./ToggleButton.js";
 
-export default class Menu extends Comment{
+export default class Menu extends Component{
 
-   constructor(elemID){
+   #menuContainer;
+   #menuListsContainer;
+   #menuData;
+   #listsContainer;
+   #isOpen = false;
+   constructor(elemID , data){
       super(elemID);
 
+      this.#menuData = data;
       const menuButton = new ToggleButton("#menu-button");
-      menuButton.onClick =((value) => {
-         console.log("menu button", value)
-         menuButton.toggle();
-      }
-      )
+      menuButton.onClick((value) => {
+
+            this.#isOpen = !this.#isOpen;
+            this.#isOpen ? this.open() : this.close();
+
+            console.log("menu button", value)
+            menuButton.toggle();
+      })
+
+      this.#menuContainer = this.element.querySelector("#menu-container");
+      this.#listsContainer = this.element.querySelector(".lists-container");
+   }
+
+   #createList(data){
       
-      this.#menuContainer = this.element.querySelector("#menu-container")
-      }
-      open() {
-         this.#menuContainer.style.transform = "scaleY(1)"
-      }
+
+      const ul = document.createElement("ul");
+      data.forEach((itemData => {
+         const listButton = new ListButton(itemData);
+         ul.appendChild(listButton.element);
+      }));
       
-      close() {
-         this.#menuContainer.style.transform = "scaleY(0)"
-      }
-   
+      this.#listsContainer.appendChild(ul);
+   }
+
+   #deleteList(index){
+      this.#listsContainer.innerHTML = "";
+   }
+
+   open(){
+      this.#createList(this.#menuData);
+      this.#menuContainer.style.transform = "scaleY(1)";
+   }
+
+   close(){
+      this.#deleteList();
+      this.#menuContainer.style.transform = "scaleY(0)";
+   }
 }

@@ -4,5 +4,4 @@ export default class Component{
       this.element = document.querySelector(elementID);
    }
 
-   
 }
