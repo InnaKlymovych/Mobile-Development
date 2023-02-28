@@ -1,54 +1,103 @@
+import Button from "./Button.js";
 import Component from "./Component.js";
+import ListButton from "./ListButton.js";
 import ToggleButton from "./ToggleButton.js";
 
-export default class Menu extends Component{
+export default class Menu extends Component {
+  #menuData;
+  #menuContainer;
+  #menuButton;
+  #backButton;
+  #currentList = null;
+  #isOpen = false;
 
-   #menuContainer;
-   #menuListsContainer;
-   #menuData;
-   #listsContainer;
-   #isOpen = false;
-   constructor(elemID , data){
-      super(elemID);
+  constructor(elementId, callback) {
+    super(elementId, callback);
 
-      this.#menuData = data;
-      const menuButton = new ToggleButton("#menu-button");
-      menuButton.onClick((value) => {
+    this.#menuButton = new ToggleButton("#menu-button", (value) => {
+      this.#isOpen ? this.close() : this.open();
+    });
 
-            this.#isOpen = !this.#isOpen;
-            this.#isOpen ? this.open() : this.close();
+    this.#backButton = new Button("#menu-back-button", (value) => {
+      const index = this.#menuContainer.children.length - 1;
+      this.#deleteList(index);
+    });
 
-            console.log("menu button", value)
-            menuButton.toggle();
-      })
+    this.#menuContainer = this.element.querySelector("#menu-container");
+  }
 
-      this.#menuContainer = this.element.querySelector("#menu-container");
-      this.#listsContainer = this.element.querySelector(".lists-container");
-   }
+  #createList(data) {
+    const ul = document.createElement("ul");
 
-   #createList(data){
-      
+    data.forEach((itemData) => {
+      const listButton = new ListButton(itemData, () => {
+        if (itemData.type === "folder") {
+          this.#createList(itemData.children);
+        } else {
+          this.callback(itemData);
+        }
+      });
+      ul.appendChild(listButton.element);
+    });
 
-      const ul = document.createElement("ul");
-      data.forEach((itemData => {
-         const listButton = new ListButton(itemData);
-         ul.appendChild(listButton.element);
-      }));
-      
-      this.#listsContainer.appendChild(ul);
-   }
+    if (this.#currentList) {
+      this.#currentList.style.transform = "translateX(-100%)";
+    }
+    this.#menuContainer.appendChild(ul);
+    this.#currentList = ul;
 
-   #deleteList(index){
-      this.#listsContainer.innerHTML = "";
-   }
+    requestAnimationFrame(() => (this.#currentList.style.transform = "translateX(0)"));
 
-   open(){
+    this.#menuContainer.children.length > 1
+      ? (this.#backButton.displayed = true)
+      : (this.#backButton.displayed = false);
+  }
+
+  #deleteList(index = null) {
+    if (index !== null) {
+      const list = this.#menuContainer.children[index];
+      this.#menuContainer.removeChild(list);
+      this.#currentList =
+        this.#menuContainer.children[this.#menuContainer.children.length - 1];
+      this.#currentList.style.transform = "translateX(0)";
+    } else {
+      this.#menuContainer.innerHTML = "";
+      this.#currentList = null;
+    }
+    this.#menuContainer.children.length > 1
+      ? (this.#backButton.displayed = true)
+      : (this.#backButton.displayed = false);
+  }
+
+  open() {
+    this.#menuButton.toggle(1);
+    this.#menuContainer.style.transform = "scaleY(1)";
+    this.callback({ type: "opening" });
+
+    setTimeout(() => {
       this.#createList(this.#menuData);
-      this.#menuContainer.style.transform = "scaleY(1)";
-   }
+    }, this.SPEED);
+    this.#isOpen = true;
+  }
 
-   close(){
-      this.#deleteList();
-      this.#menuContainer.style.transform = "scaleY(0)";
-   }
+  close() {
+    this.#menuButton.toggle(0);
+    this.#deleteList();
+    this.#menuContainer.style.transform = "scaleY(0)";
+    this.#isOpen = false;
+  }
+
+  setTrail(trail) {
+    if (!this.#isOpen) return;
+    console.log(trail);
+  }
+
+  get data() {
+    return this.#menuData;
+  }
+
+  set data(val) {
+    this.#menuData = val;
+    //if opened, paint trail.
+  }
 }

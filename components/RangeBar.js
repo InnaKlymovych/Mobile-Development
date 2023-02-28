@@ -1,28 +1,28 @@
-import Component from "./component.js";
-export default class RangeBar extends Component{
-   
-   #rangeContainer;
-   #rangeInput;
-   #rangeBar;
+import Component from "./Component.js";
 
-   constructor (rangeID = null){
+export default class RangeBar extends Component {
+  #rangeInput;
+  #rangeBar;
 
-   super(rangeID);
-   
-   this.#rangeInput = this.element.querySelector("input[type='range']");
-   this.#rangeBar = this.element.querySelector(".range-bar");
-   this.#rangeInput.addEventListener("input" , () => {
-      
-   this.#rangeBar.style.transform = this.element.querySelector
+  constructor(elemID, callback) {
+    super(elemID, callback);
 
-   });
-   
+    this.#rangeInput = this.element.querySelector("input[type='range']");
+    this.#rangeBar = this.element.querySelector(".range-bar");
 
-   }
-   onChange(callback){
-      this.#rangeInput.oninput = () => {
-         this.#rangeBar.style.transform = `scaleX(${this.#rangeInput.value / 100})`;
-         callback(this.#rangeInput.value);
-      };  
-   }
+    this.#rangeInput.oninput = () => {
+      this.value = this.#rangeInput.value;
+      this.callback(this.value);
+    };
+
+    this.value = parseFloat(this.#rangeInput.value);
+  }
+
+  get value() {
+    return parseFloat(this.#rangeInput.value);
+  }
+
+  set value(val) {
+    this.#rangeBar.style.transform = `scaleX(${val / 100})`;
+  }
 }
