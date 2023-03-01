@@ -84,4 +84,14 @@ export default class AudioPlayer {
   set volume(val) {
     this.#audio.volume = val / 100;
   }
+
+  get time(){
+    
+  }
+
+  set time(value){
+
+  }
+
+
 }

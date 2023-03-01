@@ -11,6 +11,7 @@ let audioPlayer;
 let peekaboo;
 let info;
 let controller;
+let scrub;
 let volumeBar;
 let menu;
 
@@ -73,7 +74,9 @@ const setupLayout = () => {
         break;
     }
   });
-
+  scrub = new RangeBar("#scrub" , (value) => {
+    console.log(value);
+  })
   volumeBar = new RangeBar("#volume", (value) => {
     audioPlayer.volume = value;
   });

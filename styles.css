@@ -128,6 +128,12 @@ input[type="file"] {
   flex: 1;
 }
 
+/*SCRUB*/
+
+#scrub{
+  flex:1;
+  height: 32px;
+}
 
 /* VOLUME */
 #volume {
