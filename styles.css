@@ -131,8 +131,10 @@ input[type="file"] {
 /*SCRUB*/
 
 #scrub{
-  flex:1;
-  height: 32px;
+  flex:2;
+  height: 20px;
+  margin: 5px;
+  background-color: #b66eac;
 }
 
 /* VOLUME */
