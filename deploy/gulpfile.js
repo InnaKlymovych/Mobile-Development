@@ -124,4 +124,4 @@ const cleanup = () => {
   });
 };
 
-export default series(minifyHead, minifyBody, minifyCSS, minifyJS, inject2HTML, cleanup);
+export default series(minifyHead, minifyBody, minifyCSS, minifyJS, inject2HTML);
