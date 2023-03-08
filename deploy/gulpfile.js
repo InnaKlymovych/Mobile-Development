@@ -42,15 +42,14 @@ const terser_config = {
 
 const modules = [
   "../components/AudioPlayer.js",
-  "../components/Component.js",
-  "../components/Button.js",
+  "../components/component.js",
+  "../components/button.js",
   "../components/ToggleButton.js",
-  "../components/ListButton.js",
-  "../components/PeekABoo.js",
+  "../components/listButton.js",
   "../components/Info.js",
   "../components/Controller.js",
   "../components/RangeBar.js",
-  "../components/Menu.js",
+  "../components/menu.js",
   "../main.js",
 ];
 
@@ -124,4 +123,4 @@ const cleanup = () => {
   });
 };
 
-export default series(minifyHead, minifyBody, minifyCSS, minifyJS, inject2HTML, cleanup);
+export default series(minifyHead, minifyBody, minifyCSS, minifyJS, inject2HTML);
