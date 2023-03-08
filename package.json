@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "compile": "gulp --gulpfile deploy/gulpfile.js"
+    "build": "gulp --gulpfile deploy/gulpfile.js"
   },
   "type": "module",
   "devDependencies": {
@@ -17,5 +17,19 @@
     "gulp-string-replace": "^1.1.2",
     "gulp-terser": "^2.1.0",
     "live-server": "^1.2.2"
-  }
+  },
+  "name": "mobile-development",
+  "description": "MD",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InnaKlymovych/Mobile-Development.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InnaKlymovych/Mobile-Development/issues"
+  },
+  "homepage": "https://github.com/InnaKlymovych/Mobile-Development#readme"
 }
