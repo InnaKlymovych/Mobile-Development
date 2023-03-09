@@ -1,0 +1,34 @@
+{
+      "short_name": "Music Player",
+      "name": "Music Player PWA",
+      "icons": [
+      {
+      "src": "images/icons-vector.svg",
+      "type": "image/svg+xml",
+      "sizes": "150x150"
+      },
+      {
+      "src": "images/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+      },
+      {
+      "src": "images/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+      },
+      {
+      "src": "images/maskable_icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "maskable"
+      }
+   ],
+   "start_url": "/mobile-development/",
+   "id": "/mobile-development/",
+   "background_color": "#031E3C",
+   "display": "fullscreen",
+   "scope": "/mobile-development/",
+   "theme_color": "#053160",
+   "description": "Our Player"
+}
